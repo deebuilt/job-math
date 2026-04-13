@@ -24,6 +24,7 @@ export default function CalculatorPage() {
   const [saveDialogOpen, setSaveDialogOpen] = useState(false);
   const [isDemo, setIsDemo] = useState(false);
   const { toast } = useToast();
+  const { theme, toggle: toggleTheme } = useTheme();
 
   const update = useCallback(<K extends keyof JobData>(key: K, value: JobData[K]) => {
     setJob((prev) => ({ ...prev, [key]: value }));

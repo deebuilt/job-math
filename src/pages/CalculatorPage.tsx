@@ -19,7 +19,6 @@ const TABS = [
 export default function CalculatorPage() {
   const [activeTab, setActiveTab] = useState("profit");
   const { theme, toggle: toggleTheme } = useTheme();
-  const navigate = useNavigate();
 
   return (
     <div className="max-w-lg mx-auto px-4 pb-28 pt-4 space-y-4">
@@ -97,6 +96,13 @@ function FooterLinks() {
       <button onClick={() => navigate("/privacy")} className="hover:text-foreground transition-colors">
         Privacy
       </button>
+      <span aria-hidden="true">·</span>
+      <span>
+        By{' '}
+        <a href="https://opsette.io" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground transition-colors">
+          Opsette
+        </a>
+      </span>
     </div>
   );
 }

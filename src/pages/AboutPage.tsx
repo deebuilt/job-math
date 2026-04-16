@@ -17,6 +17,10 @@ export default function AboutPage() {
 
       <h2 className="text-2xl font-bold text-foreground">About Job Math</h2>
 
+      <p className="text-xs text-muted-foreground/80">
+        A business tool from Opsette Marketplace.
+      </p>
+
       <p className="text-foreground font-medium text-base">
         Quick math for business needs.
       </p>
@@ -56,6 +60,13 @@ export default function AboutPage() {
           needs quick, reliable math for their service business.
         </p>
       </div>
+
+      <p className="text-xs text-muted-foreground/70 pt-2">
+        Find more tools at{' '}
+        <a href="https://opsette.io" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground transition-colors">
+          opsette.io
+        </a>.
+      </p>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { OpsetteFooterLogo } from "@/components/opsette-share";
 
 export default function AboutPage() {
   const navigate = useNavigate();
@@ -61,12 +62,7 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <p className="text-xs text-muted-foreground/70 pt-2">
-        Find more tools at{' '}
-        <a href="https://opsette.io" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground transition-colors">
-          opsette.io
-        </a>.
-      </p>
+      <OpsetteFooterLogo />
     </div>
   );
 }

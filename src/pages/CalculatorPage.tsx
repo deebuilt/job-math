@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useTheme } from "@/hooks/use-theme";
+import { ShareAppButton } from "@/components/opsette-share";
 import ProfitTab from "./ProfitTab";
 import DepositTab from "./DepositTab";
 import LateFeeTab from "./LateFeeTab";
@@ -25,6 +26,8 @@ export default function CalculatorPage() {
       {/* Toolbar */}
       <div className="flex items-center justify-between">
         <p className="text-sm text-muted-foreground font-medium">Quick math for business needs</p>
+        <div className="flex items-center gap-2">
+        <ShareAppButton size={36} />
         <button
           onClick={toggleTheme}
           className="h-9 w-9 flex items-center justify-center rounded-lg border border-border bg-card text-foreground transition-all active:scale-95"
@@ -44,6 +47,7 @@ export default function CalculatorPage() {
             </svg>
           )}
         </button>
+        </div>
       </div>
 
       {/* Tab Bar */}

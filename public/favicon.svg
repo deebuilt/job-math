@@ -1,5 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="96" fill="#2563eb"/>
-  <text x="256" y="340" font-family="system-ui, -apple-system, sans-serif" font-size="280" font-weight="700" fill="#ffffff" text-anchor="middle">$</text>
-  <line x1="120" y1="400" x2="392" y2="400" stroke="#34d399" stroke-width="28" stroke-linecap="round"/>
-</svg>
+<svg color="#2f4f46" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><rect x="80" y="64" width="96" height="48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><rect x="32" y="48" width="192" height="160" rx="8" transform="translate(256) rotate(90)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><circle cx="88" cy="148" r="12"/><circle cx="128" cy="148" r="12"/><circle cx="168" cy="148" r="12"/><circle cx="88" cy="188" r="12"/><circle cx="128" cy="188" r="12"/><circle cx="168" cy="188" r="12"/></svg>

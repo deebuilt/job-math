@@ -17,22 +17,10 @@ export default defineConfig(({ command }) => ({
     VitePWA({
       registerType: "autoUpdate",
       devOptions: { enabled: false },
+      manifest: false,
       workbox: {
+        navigateFallback: "index.html",
         navigateFallbackDenylist: [/^\/~oauth/],
-      },
-      manifest: {
-        name: "Job Math",
-        short_name: "Job Math",
-        description: "Quick math for business needs",
-        start_url: "./",
-        theme_color: "#2563eb",
-        background_color: "#f5f6f8",
-        display: "standalone",
-        orientation: "portrait",
-        icons: [
-          { src: "pwa-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
-          { src: "pwa-512.png", sizes: "512x512", type: "image/png", purpose: "any maskable" },
-        ],
       },
     }),
   ],

@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useTheme } from "@/hooks/use-theme";
-import { ShareAppButton } from "@/components/opsette-share";
 import ProfitTab from "./ProfitTab";
 import DepositTab from "./DepositTab";
 import LateFeeTab from "./LateFeeTab";
@@ -19,36 +17,10 @@ const TABS = [
 
 export default function CalculatorPage() {
   const [activeTab, setActiveTab] = useState("profit");
-  const { theme, toggle: toggleTheme } = useTheme();
 
   return (
     <div className="max-w-lg mx-auto px-4 pb-28 pt-4 space-y-4">
-      {/* Toolbar */}
-      <div className="flex items-center justify-between">
-        <p className="text-sm text-muted-foreground font-medium">Quick math for business needs</p>
-        <div className="flex items-center gap-2">
-        <ShareAppButton size={36} />
-        <button
-          onClick={toggleTheme}
-          className="h-9 w-9 flex items-center justify-center rounded-lg border border-border bg-card text-foreground transition-all active:scale-95"
-          aria-label="Toggle dark mode"
-        >
-          {theme === "dark" ? (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="4" />
-              <path d="M12 2v2" /><path d="M12 20v2" />
-              <path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" />
-              <path d="M2 12h2" /><path d="M20 12h2" />
-              <path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" />
-            </svg>
-          ) : (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-            </svg>
-          )}
-        </button>
-        </div>
-      </div>
+      <p className="text-sm text-muted-foreground font-medium">Quick math for business needs</p>
 
       {/* Tab Bar */}
       <Tabs value={activeTab} onValueChange={setActiveTab}>

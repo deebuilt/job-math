@@ -3,6 +3,8 @@ import { HashRouter, Route, Routes, useLocation, useNavigate } from "react-route
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { OpsetteHeader } from "@/components/opsette-header";
+import { useTheme } from "@/hooks/use-theme";
 import CalculatorPage from "./pages/CalculatorPage";
 import HistoryPage from "./pages/HistoryPage";
 import PrivacyPage from "./pages/PrivacyPage";
@@ -11,29 +13,34 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-export function AppLogo({ size = 28 }: { size?: number }) {
+function ThemeToggleButton() {
+  const { theme, toggle } = useTheme();
   return (
-    <svg width={size} height={size} viewBox="0 0 512 512" aria-hidden="true">
-      <rect width="512" height="512" rx="96" fill="#2563eb" />
-      <text x="256" y="340" fontFamily="system-ui, -apple-system, sans-serif" fontSize="280" fontWeight="700" fill="#ffffff" textAnchor="middle">$</text>
-      <line x1="120" y1="400" x2="392" y2="400" stroke="#34d399" strokeWidth="28" strokeLinecap="round" />
-    </svg>
+    <button
+      onClick={toggle}
+      className="h-9 w-9 flex items-center justify-center rounded-lg border border-border bg-card text-foreground transition-all active:scale-95"
+      aria-label="Toggle dark mode"
+    >
+      {theme === "dark" ? (
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2" /><path d="M12 20v2" />
+          <path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" />
+          <path d="M2 12h2" /><path d="M20 12h2" />
+          <path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" />
+        </svg>
+      ) : (
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+        </svg>
+      )}
+    </button>
   );
 }
 
-function Header() {
-  const navigate = useNavigate();
-
-  return (
-    <header className="sticky top-0 bg-background/95 backdrop-blur-sm z-10 border-b border-border shadow-sm">
-      <div className="max-w-lg mx-auto flex items-center justify-between px-4 py-3">
-        <button onClick={() => navigate("/")} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-          <AppLogo />
-          <h1 className="text-xl font-bold tracking-tight text-foreground">Job Math</h1>
-        </button>
-      </div>
-    </header>
-  );
+function AppHeader() {
+  const { theme } = useTheme();
+  return <OpsetteHeader theme={theme} rightExtra={<ThemeToggleButton />} />;
 }
 
 function BottomNav() {
@@ -94,7 +101,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <HashRouter>
-        <Header />
+        <AppHeader />
         <Routes>
           <Route path="/" element={<CalculatorPage />} />
           <Route path="/history" element={<HistoryPage />} />
